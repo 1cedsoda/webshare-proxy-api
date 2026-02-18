@@ -1,11 +1,11 @@
-# webshare-sdk
+# webshare-proxy-api
 
 A fully-typed TypeScript SDK for the [Webshare Proxy API](https://proxy.webshare.io). Built with Zod for runtime validation, ships as ESM + CJS.
 
 ## Installation
 
 ```bash
-npm install webshare-sdk
+npm install webshare-proxy-api
 ```
 
 **Requirements:** Node.js 18+ (uses native `fetch`).
@@ -13,7 +13,7 @@ npm install webshare-sdk
 ## Quick Start
 
 ```ts
-import { WebshareClient } from "webshare-sdk";
+import { WebshareClient } from "webshare-proxy-api";
 
 const client = new WebshareClient({ apiKey: "YOUR_API_KEY" });
 
@@ -189,7 +189,7 @@ import {
   WebshareNotFoundError,
   WebshareRateLimitError,
   WebshareServerError,
-} from "webshare-sdk";
+} from "webshare-proxy-api";
 
 try {
   await client.apiKeys.retrieve(99999);
@@ -211,13 +211,13 @@ Rate limit errors (429) are automatically retried with exponential backoff (conf
 All Zod schemas are exported for your own validation needs:
 
 ```ts
-import { ProxySchema, ApiKeySchema } from "webshare-sdk";
+import { ProxySchema, ApiKeySchema } from "webshare-proxy-api";
 
 // Use in your own validation
 const proxy = ProxySchema.parse(someData);
 
 // Get the TypeScript type
-import type { Proxy, ApiKey } from "webshare-sdk";
+import type { Proxy, ApiKey } from "webshare-proxy-api";
 ```
 
 ## Auto-Pagination
